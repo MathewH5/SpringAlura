@@ -1,6 +1,9 @@
 package br.com.mathew.screenmatch;
 
+import br.com.mathew.screenmatch.model.DadosEpisodio;
+import br.com.mathew.screenmatch.model.DadosSerie;
 import br.com.mathew.screenmatch.service.ConsumoApi;
+import br.com.mathew.screenmatch.service.CoverterDados;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -20,6 +23,14 @@ public class ScreenmatchApplication implements CommandLineRunner {
 //		json = consumoApi.obterDados("http://www.omdbapi.com/?t=dark&Season=1&apikey=c142b0d2");
 //		System.out.println(json);
 
+		CoverterDados conversor = new CoverterDados();
+		DadosSerie dados = conversor.obterDados(json, DadosSerie.class);
+		System.out.println(dados);
+
+		json = consumoApi.obterDados("http://www.omdbapi.com/?t=gilmore+girls&Season=1&episode=2&apikey=c142b0d2");
+
+		DadosEpisodio dadosEpisodio = conversor.obterDados(json, DadosEpisodio.class);
+		System.out.println(dadosEpisodio);
 
 	}
 }
