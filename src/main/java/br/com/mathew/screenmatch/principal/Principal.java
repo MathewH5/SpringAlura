@@ -7,10 +7,11 @@ import br.com.mathew.screenmatch.model.Episodio;
 import br.com.mathew.screenmatch.service.ConsumoApi;
 import br.com.mathew.screenmatch.service.CoverterDados;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Scanner;
 import java.util.stream.Collectors;
-
-import static com.fasterxml.jackson.databind.type.LogicalType.Array;
 
 public class Principal {
     private Scanner leia = new Scanner(System.in);
